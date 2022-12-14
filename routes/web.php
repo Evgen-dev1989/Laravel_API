@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/token', function (Request $request) {$token = $request->session()->token();$token = csrf_token();});
+
+
+Route::get('/clients', 'App\Http\Controllers\ClientsController@allData')->name('all');
+
+Route::post('/clients/form', 'App\Http\Controllers\ClientsController@form')->name('form');
