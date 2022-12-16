@@ -9,7 +9,11 @@
             <h3>{{$date->name}}</h3>
             <p>{{$date->email}}</p>
             <p>{{$date->created_at}}</p>
+        <h1>{{$date->payment}}</h1>
+        <h1>{{$date->tags}}</h1>
     </div>
+
+
     @endforeach
 
 {{$data->links()}}

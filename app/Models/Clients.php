@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Clients extends Model
 {
     use HasFactory;
-    public function comments()
+    public function rel()
     {
-        return $this->hasMany(Check::class);
+        return $this->hasOne(Check::class);
     }
 
 }

@@ -18,7 +18,7 @@ class ClientsFactory extends Factory
     public function definition()
     {
         return [
-            'cash' => fake()->name(),
+            'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'password' => Str::random(8),
         ];

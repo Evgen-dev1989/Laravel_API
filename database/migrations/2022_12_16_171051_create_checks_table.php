@@ -15,11 +15,9 @@ return new class extends Migration
     {
         Schema::create('checks', function (Blueprint $table) {
             $table->id();
-            $table->string('cash')->default();
-            $table->string('cashless_payments')->default();
-            $table->string('credit')->default();
-            $table->string('loan')->default();
-            $table->string('mortgage')->default();
+            $table->integer('clients_id')->default();
+            $table->string('payment')->default();
+            $table->json('tags');
             $table->timestamps();
         });
     }

@@ -18,13 +18,11 @@ class CheckFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->sentence(),
-            'body' => $this->faker->text(),
-            'tags' => collect(['php', 'ruby', 'java', 'javascript', 'bash'])
-                ->random(2)
+            'payment' => $this->faker->text(),
+            'tags' => collect(['credit', 'loan', 'mortgage','cashless_payments','cash'])
+                ->random(1)
                 ->values()
                 ->all(),
-
         ];
     }
 }

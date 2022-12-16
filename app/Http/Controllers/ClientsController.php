@@ -11,11 +11,14 @@ class ClientsController extends Controller
     public function allData()
     {
         $clients = DB::table('clients')->Simplepaginate(5);
-        $clients = DB::table('checks');
 
-
-         return view('main', ['data' => $clients]);
+        $checks=Clients::find(1)->rel;
+        return view('main', ['data' => $clients],['data' => $checks]);
     }
+
+   // public function checks(){$checks=Clients::find(1)->rel;return view('main', ['data' => $checks]);}
+
+
 
     // public function form(\Illuminate\Http\Client\Request $request) {dd($request);}
     public function form(Request $request) {
