@@ -5,13 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Clients extends Model
+class Check extends Model
 {
     use HasFactory;
-    public function comments()
-    {
-        return $this->hasMany(Check::class);
-    }
-
 }
-

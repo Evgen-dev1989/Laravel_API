@@ -6,7 +6,6 @@
 
         <div class="container-fluid">
 
-
             <div class="row g-3 align-items-center">
                 <h5>Add client</h5>
                 <div class="col-auto">

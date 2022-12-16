@@ -11,6 +11,7 @@ class ClientsController extends Controller
     public function allData()
     {
         $clients = DB::table('clients')->Simplepaginate(5);
+        $clients = DB::table('checks');
 
 
          return view('main', ['data' => $clients]);
