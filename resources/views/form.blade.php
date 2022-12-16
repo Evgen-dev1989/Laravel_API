@@ -1,7 +1,7 @@
 
 @section('form')
 
-    <form action="/clients/form" method="POST">
+    <form action="/clients/form" method="POST"  enctype="multipart/form-data">
         @csrf
 
         <div class="container-fluid">
@@ -44,7 +44,7 @@
       Must be 8-20 characters long.
     </span>
                 </div>
-                <button type="submit" class="btn btn-success">Send</button>
+                <button type="submit" class="btn btn-success" value="Send">Send</button>
             </div>
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
     </div>
