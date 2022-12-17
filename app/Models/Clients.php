@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Clients extends Model
 {
     use HasFactory;
-    public function rel()
+    public function meta()
     {
         return $this->hasOne(Check::class);
     }

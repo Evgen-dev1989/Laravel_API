@@ -22,5 +22,6 @@ Route::get('/token', function (Request $request) {$token = $request->session()->
 
 
 Route::get('/clients', 'App\Http\Controllers\ClientsController@allData')->name('all');
+Route::get('/clients', 'App\Http\Controllers\ClientsController@sh')->name('show');
 
 Route::post('/clients/form', 'App\Http\Controllers\ClientsController@form')->name('form');

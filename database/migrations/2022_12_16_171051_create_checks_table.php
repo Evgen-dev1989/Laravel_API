@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('checks', function (Blueprint $table) {
             $table->id();
-            $table->integer('clients_id')->default();
+            $table->unsignedBigInteger('clients_id')->default();
             $table->string('payment')->default();
             $table->json('tags');
+            $table->foreign('clients_id')->references('id')->on('clients')->onDelete('cascade');
             $table->timestamps();
         });
     }

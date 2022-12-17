@@ -12,12 +12,19 @@ class ClientsController extends Controller
     {
         $clients = DB::table('clients')->Simplepaginate(5);
 
-        $checks=Clients::find(1)->rel;
-        return view('main', ['data' => $clients],['data' => $checks]);
+
+
+        return view('main', ['data' => $clients] );
     }
 
-   // public function checks(){$checks=Clients::find(1)->rel;return view('main', ['data' => $checks]);}
+  // public function checks(){$checks=Clients::find(1)->rel;return $checks;}
 
+
+    public function sh(){
+        $client = Clients::find(1);
+       $check = $client->meta;
+
+        return view('main')->with('data', $client);}
 
 
     // public function form(\Illuminate\Http\Client\Request $request) {dd($request);}
@@ -71,11 +78,11 @@ class ClientsController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Clients  $clients
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function show(Clients $clients)
+    public function show()
     {
-        //
+
     }
 
     /**
