@@ -17,14 +17,6 @@ class ClientsController extends Controller
         return view('main', ['data' => $clients] );
     }
 
-  // public function checks(){$checks=Clients::find(1)->rel;return $checks;}
-
-
-    public function sh(){
-        $client = Clients::find(1);
-       $check = $client->meta;
-
-        return view('main')->with('data', $client);}
 
 
     // public function form(\Illuminate\Http\Client\Request $request) {dd($request);}

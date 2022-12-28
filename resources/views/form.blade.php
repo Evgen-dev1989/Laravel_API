@@ -1,7 +1,7 @@
 
 @section('form')
 
-    <form action="/clients/form" method="POST"  enctype="multipart/form-data">
+  <form action="/clients/form" method="POST"  enctype="multipart/form-data">
         @csrf
 
         <div class="container-fluid">
@@ -47,6 +47,27 @@
             </div>
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
     </div>
-</form>
+  </form>
 @endsection
+<?php
+$url = 'https://httpbin.org/anything'; // url, на который отправляется запрос
+$post_data = [ // поля нашего запроса
+'field1' => 'val_1',
+'field2' => 'val_2',
+];
 
+$headers = []; // заголовки запроса
+
+$post_data = http_build_query($post_data);
+
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($curl, CURLOPT_VERBOSE, 1);
+curl_setopt($curl, CURLOPT_POSTFIELDS, $post_data);
+curl_setopt($curl, CURLOPT_URL, $url);
+curl_setopt($curl, CURLOPT_POST, true); // true - означает, что отправляется POST запрос
+
+$result = curl_exec($curl);
+
+?>
