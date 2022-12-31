@@ -21,6 +21,6 @@ Route::get('/', function () {
 Route::get('/token', function (Request $request) {$token = $request->session()->token();$token = csrf_token();});
 
 
-Route::get('/clients', 'App\Http\Controllers\ClientsController@allData')->name('all');
+Route::get('/clients', 'App\Http\Controllers\ClientsController@allData')->name('clients');
 
 Route::post('/clients/form', 'App\Http\Controllers\ClientsController@form')->name('form');

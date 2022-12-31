@@ -2,22 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Clients\SearchRepository;
 use App\Models\Clients;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class ClientsController extends Controller
 {
-    public function allData()
+  //  public function allData(){$clients = DB::table('clients')->Simplepaginate(5);return view('main', ['data' => $clients] );}
+
+    public function allData(SearchRepository $searchRepository)
     {
         $clients = DB::table('clients')->Simplepaginate(5);
 
-
-
-        return view('main', ['data' => $clients] );
+        return view('main', [
+            'data' => request()->has('q')
+                ? $searchRepository->search(request('q'))
+                : $clients
+        ]);
     }
-
-
 
     // public function form(\Illuminate\Http\Client\Request $request) {dd($request);}
     public function form(Request $request) {
